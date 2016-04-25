@@ -54,11 +54,11 @@ end
         @item.fname =params["fname"]
         @item.lname =params["lname"]
         @item.email =params["email"]
-        @item.photo =params["photo"]
+        @item.phone =params["phone"]
         @item.ptime = params["ptime"]
-        @item.dtime = params["dtime"]
+        @item.pdate = params["pdate"]
         if @item.save
-            redirect_to_orders_url(@item.id)
+            redirect_to orders_url(@item.id)
         else
             render "new"
         end
@@ -69,10 +69,13 @@ end
     
     #DELETE
     
-    def destroy 
-        @item=Order.find(params[:id])
-        @item.destroy
-    redirect_to "/orders", :notice => "Order item deleted"
+ def delete
+        @delete = Order.find(params[:id])
+        @delete.destroy
+        redirect_to "/orders", :notice => "Menu item deleted"
+    end
+
+
 end
     
     
@@ -82,6 +85,3 @@ end
     
     
     
-    
-    
-end
