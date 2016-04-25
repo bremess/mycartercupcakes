@@ -1,0 +1,49 @@
+<h1>Menu</h1>
+
+<!--Samuel/Saira these lines of code validate that the user enter the fields name
+photo, and price.  Look at the menu.rb inside the models folder and the validation 
+of the fields are there -->
+<% if @new.errors.present? %>
+    <h3>The following error prevented your item for being saved:</h3>
+    <ul>
+        <% @new.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_tag(menus_path) do %> 
+   <div class="block">
+        <label for="name">Item Name:
+            <input type="text" id="name" name="name" placeholder="Item Name">
+        </label> <br><br>
+    </div>
+    
+      <div class="block">
+            <label for="photo">File input</label>
+                <input type="file" id="photo">
+      </div>
+  
+    <div class="block">
+        <label for="description">Description:
+             <textarea type="text" id="description" name="description" placeholder="Description"> <%=@new.description%></textarea>
+        </label> <br><br>
+    </div>
+    <div class="block">
+        <label for="price">Price:
+            <input type="text" id="price" name="price" placeholder="Price">
+        </label> <br><br>
+    </div>
+    
+    
+        <button type="button" class="btn btn-primary">
+            <a href="/menus">Back</a>
+        </button>
+        <button type="submit" class="btn btn-success">Submit</button>
+    
+
+
+
+    
+    
+<% end %>

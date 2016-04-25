@@ -1,0 +1,45 @@
+<div class="page-header"> 
+    <h1>Order <%= @order.id %></h1>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <di class="dl-horizontal">
+            
+            <dt>First Name</dt>
+            <dd><%= @order.fname %></dd>
+            
+            <dt>Last Name</dt>
+            <dd><%= @order.lname %></dd>
+            
+            <dt>Email</dt>
+            <dd><%= @order.email %></dd>
+            
+            <dt>Phone</dt>
+            <dd><%= @order.phone %></dd>
+            
+            <dt>Pickup Time</dt>
+            <dd><%= @order.ptime %></dd>
+            
+            <dt>Pickup Date</dt>
+            <dd><%= @order.pdate %></dd>
+        </di>
+        <!-- Validation Failure Messages -->
+        <ul>
+            <% OrderItem.where(:order_id=>@order).each do |order_item| %>
+                <% menu_item=Menu.find(order_item.menu_id) %>
+                    <li>
+                        <%= menu_item.name %> 
+                            <%=order_item.quantity %> <%= order_item.sauce %>
+                                <%= order_item.heat %>
+                        <% end %>
+                    </li>
+        </ul>
+        <ul>
+            <% @order_item.errors.full_messages.each do |message| %>
+                <li>
+                    <%= message %>
+                </li>
+        </ul>
+        <% end %>
+    </div>
+</div>

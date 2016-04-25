@@ -1,0 +1,45 @@
+<% if @item.errors.any? %>
+    <% @item.errors.full_messages.each do |message| %>
+        <div class="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <%= message %>
+        </div>
+    <% end %>
+<% end %>
+
+<div class="page-header">
+    <h1>Edit Order <%=@item.id %></h1>
+</div>
+
+<%= form_tag(order_path(@item.id), :method=>:patch) do %>
+    <div class="block">
+        <label for="fname">First Name:
+            <input type="text" id="fname" name="fname" value=<%= @item.fname %>>
+        </label> <br><br>
+    </div>
+    <div class="block">
+        <label for="lname">Last Name:
+            <input type="text" id="lname" name="lname" value=<%= @item.lname %>>
+        </label> <br><br>
+    </div>
+    <div class="block">
+        <label for="phone">Phone Number:
+            <input type="text" id="phone" name="phone" value=<%= @item.phone %>>
+        </label> <br><br>
+    </div>
+    <div class="block">
+        <label for="ptime">Pickup Time:
+            <input type="text" id="ptime" name="ptime" value=<%= @item.ptime %>>
+        </label> <br><br>
+    </div>
+    <div class="block">
+        <label for="pdate">Pickup Time:
+            <input type="text" id="pdate" name="pdate" value=<%= @item.pdate %>>
+        </label> <br><br>
+    </div>
+    
+    <button type="button" class="btn btn-primary">
+        <a href="/orders">Back</a>
+    </button>
+    
+    <input type="submit"><br>
+<% end %>

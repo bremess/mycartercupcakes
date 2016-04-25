@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <h2>Edit The Item</h2>
+
+    
+    
+    <%= form_tag(menu_path(@edit.id), :method => :patch) do %> 
+       <div class="block">
+            <label for="name">Item Name:
+                <input type="text" id="name" name="name" placeholder="Item Name" value=<%=@edit.name%>>
+            </label> <br><br>
+        </div>
+        <div class="block">
+            <label for="photo">Photo Upload:
+                <input type="text" id="photo" name="photo" placeholder="Photo Upload" value=<%=@edit.photo%>>
+            </label> <br><br>
+        </div>
+        <div class="block">
+            <label for="description">Description:
+                <textarea type="text" id="description" name="description" placeholder="Description"> <%=@edit.description%></textarea>
+            </label> <br><br>
+        </div>
+        <div class="block">
+            <label for="price">Price:
+                <input type="text" id="price" name="price" placeholder="Price" value=<%=@edit.price%>>
+            </label> <br><br>
+        </div>
+        
+        
+            <button type="button" class="btn btn-primary">
+                    <a href="/menus">Back</a>
+            </button>
+    
+                <input class="btn btn-success" type="submit">
+    
+            
+        
+        
+        
+    <% end %>
+</div>

@@ -1,0 +1,48 @@
+<% if @item.errors.present? %>
+<p>The following error prevented your menu item for being saved</p>
+<ul>
+    <% @item.errors.full_messages.each do|message| %>
+    <li> <%= messages %></li>
+    <% end %>
+</ul>
+<% end %> 
+
+<%= form_tag(orders_path) do %>
+    <br> <br> <br>
+    <div class="block">
+        <label for="fname">First Name:
+            <input type="text" id="fname" name="fname" placeholder="First Name" value=<%=@item.fname %>>
+        </label> <br> <br>
+    </div>
+    <div class="block">
+        <label for="lname">Last Name:
+            <input type="text" id="lname" name="lname" placeholder="Last Name" value=<%=@item.lname %>>
+        </label> <br> <br>
+    </div>
+    <div class="block">
+        <label for="email">Email:
+            <input type="text" id="email" name="email" placeholder="Email" value=<%=@item.email %>>
+        </label> <br> <br>
+    </div>
+    <div class="block">
+        <label for="phone">Phone:
+            <input type="text" id="phone" name="phone" placeholder="Phone" value=<%=@item.phone %>>
+        </label> <br> <br>
+    </div>
+    <div class="block">
+        <label for="ptime">Pickup Time:
+            <input type="text" id="ptime" name="ptime" placeholder="Pickup Time" value=<%=@item.ptime %>>
+        </label> <br> <br>
+    </div>
+    <div class="block">
+        <label for="pdate">Pickup Date:
+            <input type="text" id="pdate" name="pdate" placeholder="Pickup Date" value=<%=@item.pdate %>>
+        </label> <br> <br>
+    </div>
+    
+       <button type="button" class="btn btn-primary">
+            <a href="/menus">Back</a>
+        </button>
+        <button type="submit" class="btn btn-success">Submit</button>
+        
+<% end %> 

@@ -1,0 +1,39 @@
+<% if @item.errors.any? %>
+<% @item.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times; </button>
+    <% messages %>
+</div>
+<% end %>
+<% end %>
+
+<div class="page-header">
+    <h1>Edit Order Item #<%= @item.id %></h1>
+</div>
+    <%= form_tag(order_item_path(@item.id), :method => :patch) do %>
+    <div class="block">
+        <label for="menuid">Menu id: 
+        <%= select_tag :menu_id, options_from_collection_for_select(Menu.all, :id, :name, @item.menu_id) %>
+        </label>
+    </div>
+    <div class="block">
+        <label for="orderkd">Order id: 
+        <%= select_tag :order_id, options_from_collection_for_select(Order.all, :id, :name, @item.order_id) %>
+        </label>
+    </div>
+    <div class="block">
+        <lable for="quantity"> Quantity :
+        <%= select_tag: quantity, options_for_select([1, 2, 3, 4, 5], @item.quantity) %> 
+        </lable> <br> </br>
+    </div>
+    
+    
+    
+    
+    <button type="button" class="btn btn-primary">
+        <a herf="/menus">Back</a>
+    </button>
+    
+    <input type="submit"> <br>
+    
+    <% end %>
