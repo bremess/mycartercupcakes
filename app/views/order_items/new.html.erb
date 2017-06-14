@@ -8,25 +8,31 @@
 <%  end %> 
 
 <%= form_tag(order_items_path) do %>
-<div class="block">
-    <label for="menuid">Menu id:
-    <%=select_tag :menu_id, options_from_collection_for_select(Menu.all, :id, :name, @item.menu_id) %>
-    </label> <br> </br>
+    <div class="block">
+        <label for="menuid">Item:
+        <%=select_tag :menu_id, options_from_collection_for_select(Menu.all, :id, :name, @item.menu_id) %>
+        </label> <br> </br>
+        
+    </div>
+   
+    <div class="block">
+        <label for="orderid"> Description:
+             <br>
+             <textarea class="form-control" rows="3"></textarea>
+        </label> <br> <br>
+    </div>    
     
-</div>
-<div class="block">
-    <label for="orderid">Order id:
-    <%=select_tag :order_id, options_from_collection_for_select(Order.all, :id, :name, @item.order_id) %>
-    </label> <br> </br>
-<div class="block">
-    <label for="quantity">Quantity:
-    <%=select_tag :quantity, options_for_select([1, 2 , 3, 4, 5, 6], @item.quantity) %> 
     
-    </label> <br> </br>
-</div>
+    <div class="block">
+        <label for="quantity">Quantity:
+        <%=select_tag :quantity, options_for_select([1, 2 , 3, 4, 5, 6], @item.quantity) %> 
+        
+        </label> <br> </br>
+    </div>
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default"> Submit </button>
+            <button type="submit" id="submitbutton" style="background-color:#801515" style="font-color:white"> Submit </button>
+        </div>
     </div>
 </div>
 <% end %>

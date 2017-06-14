@@ -8,7 +8,7 @@
 <% end %> 
 
 <%= form_tag(orders_path) do %>
-    <br> <br> <br>
+    
     <div class="block">
         <label for="fname">First Name:
             <input type="text" id="fname" name="fname" placeholder="First Name" value=<%=@item.fname %>>
@@ -40,9 +40,18 @@
         </label> <br> <br>
     </div>
     
+
+
+
+    
+    
        <button type="button" class="btn btn-primary">
             <a href="/menus">Back</a>
         </button>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" id="submitbutton" class="btn btn-success">Submit</button>
         
 <% end %> 
+<br>
+<br>
+
+

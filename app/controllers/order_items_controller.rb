@@ -11,8 +11,8 @@ class OrderItemsController < ApplicationController
         @item.order_id = params["order_id"]
         @item.quantity = params["quantity"]
         
-    if @item.save
-        redirect_to order_url(@item.order_id), :notice => "Order item created successfully."
+        if @item.save
+         redirect_to order_url(@item.order_id), :notice => "Order item created successfully."
         else
             render "new"
         end
@@ -21,13 +21,13 @@ class OrderItemsController < ApplicationController
         
         
 #Read
- def show 
-     @item=OrderItem.find_by(:id => params[:id])
-     if @item.present?
-         render "show"
-     else 
-         redirect_to_order_items_url, :notice => "The record doesn't exist"
-     end 
+    def show 
+         @item=OrderItem.find_by(:id => params[:id])
+         if @item.present?
+             render "show"
+         else 
+             redirect_to order_items_url, :notice => "The record doesn't exist"
+         end 
     end 
     
     def index 
@@ -47,9 +47,7 @@ class OrderItemsController < ApplicationController
         @item.order_id=params["order_id"]
         @item.quantity=params["quantity"]
         if @item.save
-            redirect_to_order_item_url(@item.id)
-        else
-            render_to_order_item_url(@item.id)
+            redirect_to order_item_url(@item.id)
         else
             render "new"
         end 

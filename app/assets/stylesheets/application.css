@@ -14,10 +14,11 @@
  *= require_self
  */
 body{
-    padding: 30px;
+    font-family: 'Old Standard TT', serif;
+    padding: 50px;
 }
 
- label {
+label {
   display: inline-block;
   width: 340px;
   text-align: right;
@@ -27,3 +28,134 @@ body{
 a {
     color: white;
 }
+
+
+
+#carimage {
+    display:block;
+    width: 450px;
+    margin: 0 auto;
+    width:  1000px;
+    height: 500px;
+   
+}
+
+
+
+a {
+    color:white;
+    
+}
+
+
+
+
+#logo {
+    display:block;
+    width: 450px;
+    margin: 0 auto;
+    }
+    
+    
+#nav1 {
+    font-size: 20px;
+    background-color: #801515;   /* #E79292;  */
+   
+}
+    
+    
+#story {
+    font-size: 20px;
+}
+/****  This id="name"  interfere with the Menu New page id="name" change the id name    
+#name {
+    font-size: 40px;
+}
+ ***/  
+    
+#nameimg {
+    vertical-align:bottom;
+    position:relative;
+    z-index:-1;
+    overflow:hidden;
+    border-radius: 10px;
+    border:3px solid grey;
+    display:inline-block;
+}
+
+/*****
+img{
+    height: auto; 
+    width: auto; 
+    max-width: 200px; 
+    max-height: 200px;
+}
+****/
+
+#footer{
+    background-color:#AA3939; /** E79292; */
+}
+
+#icon{
+    color: white;
+}
+#icon2{
+    color:  #E79292;
+}
+
+
+#copy {
+    color:white;
+}
+
+#homepage {
+    font-size:200%;
+    color: #801515;;
+}
+
+#homepage1 {
+    font-size:400%;
+}
+
+#menu {
+    background-color: #E79292;
+    color:  #801515; /*white;*/
+}
+
+
+
+#editbutton {
+    background-color:#CE6868;
+}
+
+#deletebutton {
+    background-color:#B23F3F;
+}
+
+#submitbutton {
+    background-color:#22b24c;
+}
+
+
+#left1{
+text-align:left;
+}
+
+
+
+  #forgot {
+      text-color:gray;
+      text-size:20px;
+  }
+  
+  
+  #login {
+       font-size: 300%;
+       text-align:left;
+       text-align:center;
+  }
+  
+    
+  #log {
+       text-align:center;
+  }

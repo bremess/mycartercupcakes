@@ -20,6 +20,20 @@ class OrdersController < ApplicationController
         render "new"
     end 
 end 
+
+
+    def create
+        @item = OrderItem.new
+        @item.menu_id = params["menu_id"]
+        @item.order_id = params["order_id"]
+        @item.quantity = params["quantity"]
+        
+        if @item.save
+         redirect_to order_url(@item.order_id), :notice => "Order item created successfully."
+        else
+            render "new"
+        end
+    end
     
    #READ
     def show 

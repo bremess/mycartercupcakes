@@ -1,25 +1,17 @@
-<div class="container-fluid">
-    <div class="page-header">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Menu Items</h2> 
 
-            </div>
-          
-        </div>
-    </div>
         
         
         <div class ="row">
             <div class="col-sm-12">
+            
                 <table class="table table-stripped table-hover">
-                    <tr>
+                    
+                    <tr id="menu">
                         <th>Name</th>
-                        <th>Photo</th>
+                        <th>Image</th>
                         <th>Description</th>
                         <th>Price</th>
                         <th>Created</th>
-                        <th>Updated</th>
                         <th></th>
                     </tr>
                     
@@ -27,22 +19,23 @@
                         <tr>
                                 <%= link_to menu_path(index.id) do%>
                                     <td><%= index.name %></td>
-                                    <td><img src="<%= index.photo %>" width="30"></td>
+                                    <td><img src="<%= index.photo %>" height="100" width="100"></td>
                                     <td><%= index.description %></td>
                                     <td><%= index.price %></td>
                                     <td><%= index.created_at.strftime("%b %e, %l:%M %p") %></td>
-                                    <td><%= index.updated_at.strftime("%b %e, %l:%M %p") %></td>
                                 <% end %> 
                             <td>
                                 <button class="btn btn-primary">
                                     <%= link_to "Show", menu_url(index.id) %>
                                 </button>
-                                <button class="btn btn-warning">
+                            <% if current_user.present? && current_user.admin %>
+                                <button id="editbutton" class="btn btn-warning">
                                     <%= link_to "Edit", edit_menu_url(index.id) %>
                                 </button>
-                                <button class="btn btn-danger">
+                                <button id="deletebutton" class="btn btn-danger">
                                     <%= link_to "Delete", menu_url(index.id), :method => :delete, :data => {:confirm => "Are you sure?"} %>
                                 </button>
+                            <% end %>
                             </td>
                         </tr>
                     <% end %>

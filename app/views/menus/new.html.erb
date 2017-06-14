@@ -1,4 +1,4 @@
-<h1>Menu</h1>
+
 
 <!--Samuel/Saira these lines of code validate that the user enter the fields name
 photo, and price.  Look at the menu.rb inside the models folder and the validation 
@@ -13,37 +13,33 @@ of the fields are there -->
 <% end %>
 
 <%= form_tag(menus_path) do %> 
-   <div class="block">
-        <label for="name">Item Name:
-            <input type="text" id="name" name="name" placeholder="Item Name">
-        </label> <br><br>
+    <div class="block">
+        <label for="name"> Item Name:
+            <input type="text" id="name" name="name"  >
+        </label> <br> <br>
+    </div>
+
+    <div class="block">  
+        <label for="photo">Upload Photo: 
+            <input type="text" id="photo">
+        </label>
     </div>
     
-      <div class="block">
-            <label for="photo">File input</label>
-                <input type="file" id="photo">
-      </div>
-  
     <div class="block">
         <label for="description">Description:
-             <textarea type="text" id="description" name="description" placeholder="Description"> <%=@new.description%></textarea>
-        </label> <br><br>
-    </div>
+             <textarea type="text" id="description" name="description"> </textarea>
+        </label> <br>
+    </div>  
+    
     <div class="block">
         <label for="price">Price:
-            <input type="text" id="price" name="price" placeholder="Price">
-        </label> <br><br>
+            <input type="text" id="price" name="price">
+        </label> <br>
+    </div>  
+    
+    <div class="form-group"> 
+        <button type="button" class="btn btn-primary">   <a href="/menus">Back</a></button>
+        <button type="submit" id="submitbutton" class="btn btn-success">Submit</button>
     </div>
-    
-    
-        <button type="button" class="btn btn-primary">
-            <a href="/menus">Back</a>
-        </button>
-        <button type="submit" class="btn btn-success">Submit</button>
-    
-
-
-
-    
     
 <% end %>

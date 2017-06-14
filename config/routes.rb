@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
+  
+   root "indexs#home"
+   
+  #Home&AboutUs
+   get "/home", {:controller => "indexs", :action => "home", :as => "home_page"} 
+   get "/aboutus",    {:controller => "indexs", :action => "aboutus", :as => "aboutus_page"} 
+   get "/location",    {:controller => "indexs", :action => "location", :as => "location_page"} 
+  
+  
   #Menu
     #Create
     get "/menus/new", {:controller => "menus", :action => "new", :as => "new_menu"} 
@@ -38,7 +49,7 @@ Rails.application.routes.draw do
   #ORDER_ITEM 
   
   #CREATE 
-  get "/order_items/new", {:controller => "order_items", :action => "new", :as => "new_order_item"} 
+    get "/order_items/new", {:controller => "order_items", :action => "new", :as => "new_order_item"} 
     post "/order_items",    {:controller => "order_items", :action => "create", :as => "order_items"} 
     
     #Read

@@ -25,11 +25,10 @@ class MenusController < ApplicationController
             render "show"
         else
            redirect_to menus_url, :notice => "The record doesn't exist"
-       
-       
-        end
+       end
             
     end
+    
     def index
        @show=Menu.all
         render "index"

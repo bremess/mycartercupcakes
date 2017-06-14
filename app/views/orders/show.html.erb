@@ -1,9 +1,10 @@
-<div class="page-header"> 
-    <h1>Order <%= @order.id %></h1>
-</div>
+
+<h2>Order <%= @order.id %></h2>
+
+
 <div class="row">
     <div class="col-md-12">
-        <di class="dl-horizontal">
+        <dl class="dl-horizontal">
             
             <dt>First Name</dt>
             <dd><%= @order.fname %></dd>
@@ -22,24 +23,39 @@
             
             <dt>Pickup Date</dt>
             <dd><%= @order.pdate %></dd>
-        </di>
+        </dl>
+       
+       
         <!-- Validation Failure Messages -->
         <ul>
             <% OrderItem.where(:order_id=>@order).each do |order_item| %>
                 <% menu_item=Menu.find(order_item.menu_id) %>
                     <li>
                         <%= menu_item.name %> 
-                            <%=order_item.quantity %> <%= order_item.sauce %>
-                                <%= order_item.heat %>
-                        <% end %>
+                            <%= order_item.quantity %>
                     </li>
+            <% end %>
         </ul>
-        <ul>
-            <% @order_item.errors.full_messages.each do |message| %>
-                <li>
-                    <%= message %>
-                </li>
-        </ul>
+        
+        <%if @order_item.errors.present? %>
+            <p> The following error prevent your menu order_item for being saved</p>
+            <ul>
+                 <% @order_item.errors.full_messages.each do |message| %>
+                     <li>
+                         <%= message %>
+                     </li>
+                 <% end %>
+            </ul>
         <% end %>
-    </div>
+        
+
+        <button type="button" class="btn btn-primary"> <a href="/orders">Back</a> </button>
+        <button type="button" id="editbutton" class="btn btn-warning">
+            <a href="/orders/<%= @order.id %>/edit">Edit</a>
+        </button>
+        <button type="button" class="btn btn-danger">
+             <%= link_to "Delete", order_url(@order.id), :method => :delete, :data => {:confirm => "Are you sure?"} %> 
+        </button>
+   
+</div>
 </div>
